@@ -1,0 +1,13 @@
+<ns-action-bar title="Financial Detail"></ns-action-bar>
+<GridLayout columns="*, 2*" rows="*,*,*,*,*" class="page p-20">
+    <label row="0" col="0"  [text]="'Name: '"></label>
+    <label row="0" col="1" [text]="finance?.name"></label>
+    <label row="1" col="0" [text]="'Email: '"></label>
+    <label row="1" col="1" [text]="finance?.email"></label>
+    <label row="2" col="0" [text]="'Phone: '"></label>
+    <label row="2" col="1" [text]="finance?.phone"></label>
+    <label row="3" col="0" [text]="'Organization: '"></label>
+    <label row="3" col="1" [text]="finance?.organization"></label>
+    <label row="4" col="0" [text]="'Amount: '"></label>
+    <label row="4" col="1" [text]="finance?.amount"></label>
+</GridLayout>

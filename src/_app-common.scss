@@ -1,0 +1,240 @@
+@import '@nativescript/theme/core';
+@import '@nativescript/theme/grey';
+
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fab {
+  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
+  font-weight: 900;
+  font-size: 15;
+  margin-top: 15;
+  margin-left: 5;
+  margin-right: 10;  
+}
+
+.fas1 {
+    font-family: 'Font Awesome 5 Free', 'fa-solid-900';
+    font-weight: 900;
+    font-size: 15;
+    margin-top: 15;
+    margin-left: 5;
+    margin-right: 10;
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+.bgImage1{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage2{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage3{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage4{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage5{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image5.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImage6{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/image6.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bgImageQrcode{
+    background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('~/images/sparshqrcode.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50% 50%;
+}
+
+// Common page class
+.page__content {
+  &-icon,
+  &-placeholder {
+    color: const(grey);
+    font-size: 20;
+    vertical-align: center;
+    horizontal-align: center;
+  }
+
+  &-icon {
+    font-size: 72;
+    vertical-align: top;
+    margin-top: 20%;
+  }
+}
+
+// Drawer navigation custom styles
+.nt-drawer__header-image {
+  color: const(grey);
+}
+
+.btn {
+    width: 80%;
+    padding: 5 10;
+    margin: 5 10;
+}
+
+.mt-30{
+    margin-top: 20;
+}
+
+.mt-10{
+    margin-top: 10;
+}
+// class="btn mt-30 -rounded-lg" 
+
+.rejected{
+    color: red;
+    font-weight: bold;
+    font-size: 16;
+    margin-top: 20;
+}
+
+.accepted{
+    color: green;
+    font-weight: bold;
+    font-size: 16;
+    margin-top: 20;
+}
+
+.listContainer{
+    background-color: red;
+    height: 100;
+    margin-top: 20 !important;
+}
+
+.flexDir{
+    display: flex;
+}
+
+$primary: grey;
+.form {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .input-field {
+        width: 80%;
+       
+        .label {
+            color: white;
+            font-weight: 600;
+            font-size: 16;
+            
+        }
+        .label.invalid {
+            color: red;
+        }
+        .input {
+            border-width: 2;
+            background-color: white;
+            height: 50;
+            padding-left: 10;
+            color: black;
+            font-size: 16;
+            border-radius: 10;
+            border-color: $primary;
+            width: 100%;
+        }
+        .password{
+            border-width: 0;
+            color: black;
+            font-size: 12;
+            width: 100%;
+        }
+        .drop{
+            padding-top: 8;
+        }
+    }
+	
+    .input-field-1 {
+        width: 80%;
+       
+        .label {
+            color: black;
+            font-weight: 600;
+            font-size: 16;
+            
+        }
+        .label.invalid {
+            color: red;
+        }
+        .input {
+            border-width: 2;
+            background-color: white;
+            height: 50;
+            padding-left: 10;
+            color: black;
+            font-size: 16;
+            border-radius: 10;
+            border-color: $primary;
+            width: 100%;
+        }
+        .password{
+            border-width: 0;
+            color: black;
+            font-size: 12;
+            width: 100%;
+        }
+        .drop{
+            padding-top: 8;
+        }
+    }
+	
+}
+
+.btnColor{
+    background-color: black;
+    color: white;
+}
+.ng-invalid.ng-touched {
+    border-bottom-color: red;
+    color: red;
+}
+
+.cardStyle{
+    background-color: lightblue;
+    border-radius: 10;
+}

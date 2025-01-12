@@ -1,0 +1,15 @@
+<ns-action-bar title="Donation Detail"></ns-action-bar>
+<StackLayout class="page p-20">
+    <Card:CardView class="cardStyle">
+        <StackLayout class="cardContent">
+            <label [text]="'Food type: ' + donation?.food_type"></label>
+            <label [text]="'Quantity: ' + donation?.quantity" class="mt-10"></label>
+            <label [text]="'Food Available Date: ' + changeDateFormat(donation?.food_available_date)" class="mt-10"></label>
+            <label [text]="'Transport Mode: ' + donation?.transport_details" class="mt-10"></label>
+
+            <Image [src]="donation?.food_image" width="200" height="200"></Image>
+
+            <!-- <Button class="btn btnColor -rounded-lg" text="Accept" (tap)="onAcceptDonation()"></Button> -->
+        </StackLayout>
+    </Card:CardView>
+</StackLayout>

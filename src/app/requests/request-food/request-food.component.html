@@ -1,0 +1,41 @@
+<ns-action-bar title="Request Food"></ns-action-bar>
+<ScrollView>
+
+<FlexboxLayout class="form" [formGroup]="requestFoodForm"  flexDirection="column" justifyContent="center" alignItems="center" class="form bgImage1">
+
+    
+    <StackLayout class="input-field">
+        <label class="label" text="Type of Food" [ngClass]="{invalid: !requestFoodForm.get('food_type').valid && requestFoodForm.get('food_type').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="food_type"></TextField>
+        <label *ngIf="!requestFoodForm.get('food_type').valid && requestFoodForm.get('food_type').touched" text="Please enter valid food type"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Quantity Required" [ngClass]="{invalid: !requestFoodForm.get('quantity_required').valid && requestFoodForm.get('quantity_required').touched}"></label>
+        <TextField class="input" maxLength="10" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="quantity_required"></TextField>
+        <label *ngIf="!requestFoodForm.get('quantity_required').valid && requestFoodForm.get('quantity_required').touched" text="Please enter valid quantity required"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Required Date" [ngClass]="{invalid: !requestFoodForm.get('food_required_date').valid && requestFoodForm.get('food_required_date').touched}"></label>
+        <!-- <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="food_required_date"></TextField>
+        <label *ngIf="!requestFoodForm.get('food_required_date').valid && requestFoodForm.get('food_required_date').touched" text="Please enter valid food required date"></label> -->
+        <DatePickerField (dateChange)="onDateChanged($event)"></DatePickerField>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Transport Details" [ngClass]="{invalid: !requestFoodForm.get('transport_details').valid && requestFoodForm.get('transport_details').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="transport_details"></TextField>
+        <label *ngIf="!requestFoodForm.get('transport_details').valid && requestFoodForm.get('transport_details').touched" text="Please enter valid transport details"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Location Details" [ngClass]="{invalid: !requestFoodForm.get('food_required_location').valid && requestFoodForm.get('food_required_location').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="food_required_location"></TextField>
+        <label *ngIf="!requestFoodForm.get('food_required_location').valid && requestFoodForm.get('food_required_location').touched" text="Please enter valid location details"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <!-- <label class="label" text="Upload photo"></label>
+        <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="food_image"></TextField> -->
+        <Button text="Upload photo" (tap)="onPick()"></Button>
+        <Image [width]="thumbSize" [height]="thumbSize" [src]="imageSrc" stretch="aspectFill"></Image>
+    </StackLayout>
+    <Button [isEnabled]="requestFoodForm.valid" text="Submit" class="btn btnColor -rounded-lg" (tap)="onRequestFood()"></Button>
+</FlexboxLayout>
+</ScrollView>

@@ -1,0 +1,34 @@
+<ns-action-bar title="Donate Food"></ns-action-bar>
+<ScrollView>
+<FlexboxLayout class="form" [formGroup]="donateFoodForm" flexDirection="column" justifyContent="center" alignItems="center" class="form bgImage1">
+
+    <StackLayout class="input-field">
+        <label class="label" text="Type of Food" [ngClass]="{invalid: !donateFoodForm.get('food_type').valid && donateFoodForm.get('food_type').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="food_type"></TextField>
+        <label *ngIf="!donateFoodForm.get('food_type').valid && donateFoodForm.get('food_type').touched" text="Please enter valid food type"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Quantity (Kg)" [ngClass]="{invalid: !donateFoodForm.get('quantity').valid && donateFoodForm.get('quantity').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="quantity"></TextField>
+        <label *ngIf="!donateFoodForm.get('quantity').valid && donateFoodForm.get('quantity').touched" text="Please enter valid quantity"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Food Available Date" [ngClass]="{invalid: !donateFoodForm.get('food_available_date').valid && donateFoodForm.get('food_available_date').touched}"></label>
+        <!-- <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="food_available_date"></TextField>
+        <label *ngIf="!donateFoodForm.get('food_available_date').valid && donateFoodForm.get('food_available_date').touched" text="Please enter valid food available date"></label> -->
+        <DatePickerField (dateChange)="onDateChanged($event)"></DatePickerField>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Transport Details" [ngClass]="{invalid: !donateFoodForm.get('transport_details').valid && donateFoodForm.get('transport_details').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="transport_details"></TextField>
+        <label *ngIf="!donateFoodForm.get('transport_details').valid && donateFoodForm.get('transport_details').touched" text="Please enter valid transport details"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <!-- <label class="label" text="Upload photo"></label> -->
+        <!-- <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="food_image" (tap)="onPick()"></TextField> -->
+        <Button text="Upload photo" (tap)="onPick()"></Button>
+        <Image [width]="thumbSize" [height]="thumbSize" [src]="imageSrc" stretch="aspectFill"></Image>
+    </StackLayout>
+    <Button [isEnabled]="donateFoodForm.valid" text="Submit" class="btn btnColor -rounded-lg" (tap)="onDonateFood()"></Button>
+</FlexboxLayout>
+</ScrollView>

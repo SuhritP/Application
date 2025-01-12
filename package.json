@@ -1,0 +1,69 @@
+{
+  "name": "nolo-v2",
+  "main": "src/main.ts",
+  "version": "1.0.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "nativescript": {
+    "id": "org.nativescript.nolov2"
+  },  
+  "files": [
+    "App_Resources",
+    "hooks",
+    "src",
+    "tools",
+    "!tools/assets",
+    ".editorconfig",
+    "references.d.ts",
+    "tsconfig.json"
+  ],
+  "keywords": [
+    "nstudio",
+    "nativescript",
+    "mobile",
+    "angular",
+    "{N}",
+    "tns",
+    "template",
+    "drawer",
+    "navigation",
+    "category-general"
+  ],  
+  "dependencies": {
+    "@angular/animations": "~17.3.0",
+    "@angular/common": "~17.3.0",
+    "@angular/compiler": "~17.3.0",
+    "@angular/core": "~17.3.0",
+    "@angular/forms": "~17.3.0",
+    "@angular/platform-browser": "~17.3.0",
+    "@angular/platform-browser-dynamic": "~17.3.0",
+    "@angular/router": "~17.3.0",
+	"@angular/cli": "^17.3.6",
+    "@nativescript/angular": "^17.0.0",
+    "@nativescript/core": "~8.7.0",
+    "@nativescript/theme": "~3.0.2",
+    "nativescript-ui-sidedrawer": "~15.2.0",
+	"nativescript-http-formdata": "^3.1.1",
+	"@nativescript/background-http": "^6.0.1",
+	"@nativescript/datetimepicker": "^2.1.13",
+	"@nativescript/imagepicker": "^3.1.1",
+	"@nativescript/schematics": "^11.2.0",
+	"@nstudio/nativescript-cardview": "^2.0.2",
+	"nativescript-drop-down": "^6.0.2",
+	"reflect-metadata": "~0.2.2",
+	"moment": "^2.30.1",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.14.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~17.3.0",
+    "@angular/compiler-cli": "~17.3.0",
+    "@nativescript/android": "8.7.0",
+    "@nativescript/types": "~8.7.0",
+    "@nativescript/webpack": "~5.0.19",
+    "@ngtools/webpack": "~17.3.0",
+    "typescript": "~5.4.0"
+  }
+}

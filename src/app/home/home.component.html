@@ -1,0 +1,9 @@
+<ns-action-bar title="Landing Page" [showBackButton]="false" [hasMenu]="true"></ns-action-bar>
+<FlexboxLayout flexDirection="column" justifyContent="center" alignItems="center" class="bgImage1">
+    <Button *ngIf="user.role === 'NGO'" text="Request Food" class="btn btnColor -rounded-lg" nsRouterLink="/requests/food" pageTransition="slideLeft"></Button>
+    <Button text="View Requests" class="btn btnColor -rounded-lg" nsRouterLink="/requests" pageTransition="slideLeft"></Button>
+    <Button *ngIf="user.role != 'NGO'" text="Donate Food" class="btn btnColor -rounded-lg" nsRouterLink="/donations/food" pageTransition="slideLeft"></Button>
+    <Button text="View Donations" class="btn btnColor -rounded-lg" nsRouterLink="/donations" pageTransition="slideLeft"></Button>
+    <Button *ngIf="user.role != 'NGO'" text="Contribute Financial Aid" class="btn btnColor -rounded-lg" nsRouterLink="/finances" pageTransition="slideLeft"></Button>
+    <!-- <Button *ngIf="user.role == 'NGO'" text="View Financial Summary" class="btn btnColor -rounded-lg" nsRouterLink="/finances" pageTransition="slideLeft"></Button> -->
+</FlexboxLayout>

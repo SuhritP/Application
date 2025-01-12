@@ -1,0 +1,29 @@
+<ns-action-bar title="Contribute Financial Aid"></ns-action-bar>
+<FlexboxLayout class="form" [formGroup]="financesCreateForm">
+    <StackLayout class="input-field">
+        <label class="label" text="Name" [ngClass]="{invalid: !financesCreateForm.get('name').valid && financesCreateForm.get('name').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="name"></TextField>
+        <label *ngIf="!financesCreateForm.get('name').valid && financesCreateForm.get('name').touched" text="Please enter valid name"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Email" [ngClass]="{invalid: !financesCreateForm.get('email').valid && financesCreateForm.get('email').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="email"></TextField>
+        <label *ngIf="!financesCreateForm.get('email').valid && financesCreateForm.get('email').touched" text="Please enter valid email"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Phone" [ngClass]="{invalid: !financesCreateForm.get('phone').valid && financesCreateForm.get('phone').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="phone"></TextField>
+        <label *ngIf="!financesCreateForm.get('phone').valid && financesCreateForm.get('phone').touched" text="Please enter valid phone number"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Organization" [ngClass]="{invalid: !financesCreateForm.get('organization').valid && financesCreateForm.get('organization').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none" formControlName="organization"></TextField>
+        <label *ngIf="!financesCreateForm.get('organization').valid && financesCreateForm.get('organization').touched" text="Please enter valid organization"></label>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <label class="label" text="Amount" [ngClass]="{invalid: !financesCreateForm.get('amount').valid && financesCreateForm.get('amount').touched}"></label>
+        <TextField class="input" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none" formControlName="amount"></TextField>
+        <label *ngIf="!financesCreateForm.get('amount').valid && financesCreateForm.get('amount').touched" text="Please enter valid amount"></label>
+    </StackLayout>
+    <Button [isEnabled]="financesCreateForm.valid" text="Donate" class="btn btnColor -rounded-lg" (tap)="onFinances()"></Button>
+</FlexboxLayout>

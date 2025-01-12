@@ -1,0 +1,56 @@
+<ns-action-bar title="Register Page" [showHomeIcon]="false" [hasMenu]="false"></ns-action-bar>
+<FlexboxLayout class="form" [formGroup]="registerForm" flexDirection="column" justifyContent="center" alignItems="center" class="form bgImage">
+    <StackLayout class="input-field-1">
+        <label class="label" text="Name"
+            [ngClass]="{invalid: !registerForm.get('name').valid && registerForm.get('name').touched}"></label>
+        <TextField class="input" returnKeyType="next" [autocorrect]="false" autocapitalizationType="none"
+            formControlName="name"></TextField>
+        <label *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched"
+            text="Please enter valid name"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="Password"
+            [ngClass]="{invalid: !registerForm.get('password').valid && registerForm.get('password').touched}"></label>
+            <GridLayout columns="*,auto" rows="auto" class="input">
+                <TextField col="0" row="0" class="password"  returnKeyType="next" [autocorrect]="false"
+                    autocapitalizationType="none" [secure]="passwordSecure" hint="Min 6 Characters"
+                    formControlName="password"></TextField>
+                <label col="1" row="0" class="fas1" [text]="passwordSecure ? '&#xf070;' : '&#xf06e;'"
+                    (tap)="passwordSecure = !passwordSecure"></label>
+            </GridLayout>
+        <label *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched"
+            text="Please enter valid password"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="Phone"
+            [ngClass]="{invalid: !registerForm.get('phone').valid && registerForm.get('phone').touched}"></label>
+        <TextField class="input" 
+        maxLength="10"
+        returnKeyType="next" keyboardType="phone" [autocorrect]="false"
+            autocapitalizationType="none" formControlName="phone"></TextField>
+        <label *ngIf="!registerForm.get('phone').valid && registerForm.get('phone').touched"
+            text="Please enter valid phone number"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="Email"
+            [ngClass]="{invalid: !registerForm.get('email').valid && registerForm.get('email').touched}"></label>
+        <TextField class="input" returnKeyType="next" keyboardType="email" [autocorrect]="false"
+            autocapitalizationType="none" formControlName="email"></TextField>
+        <label *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched"
+            text="Please enter valid email"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="User Type"></label>
+        <DropDown class="input drop" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none"
+            hint="Select Role" #dd backroundColor="red" itemsTextAlignment="center" [items]="roles"
+            [(ngModel)]="selectedIndex" [ngModelOptions]="{standalone: true}" (selectedIndexChanged)="onchange($event)"
+            (opened)="onopen()" (closed)="onclose()" row="0" colSpan="2"></DropDown>
+    </StackLayout>
+    <StackLayout *ngIf="others" class="input-field-1">
+        <label class="label" text="Other"></label>
+        <TextField class="input" returnKeyType="next" keyboardType="email" [autocorrect]="false"
+            autocapitalizationType="none" formControlName="other_role"></TextField>
+    </StackLayout>
+    <Button text="Submit" [isEnabled]="registerForm.valid" class="btn btnColor -rounded-lg"
+        (tap)="onRegister()" style="margin-top: 20;"></Button>
+</FlexboxLayout>

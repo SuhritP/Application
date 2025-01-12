@@ -1,0 +1,42 @@
+<ns-action-bar title="Login Page" [showBackButton]="false" [hasMenu]="false"></ns-action-bar>
+<FlexboxLayout [formGroup]="loginForm" *ngIf="!isLoading" flexDirection="column" justifyContent="center"
+    alignItems="center" class="form bgImage">
+    <StackLayout class="input-field-1">
+        <label class="label" text="Email"
+            [ngClass]="{invalid: !loginForm.get('email').valid && loginForm.get('email').touched}"></label>
+        <TextField class="input" returnKeyType="next" keyboardType="email" [autocorrect]="false"
+            autocapitalizationType="none" formControlName="email"></TextField>
+        <label *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+            text="Please enter valid email"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="Password"
+            [ngClass]="{invalid: !loginForm.get('password').valid && loginForm.get('password').touched}"></label>
+        <GridLayout columns="*,auto" rows="auto" class="input">
+            <TextField col="0" row="0" class="password"  returnKeyType="next" [autocorrect]="false"
+                autocapitalizationType="none" [secure]="passwordSecure" hint="Min 6 Characters"
+                formControlName="password"></TextField>
+            <label col="1" row="0" class="fas1" [text]="passwordSecure ? '&#xf070;' : '&#xf06e;'"
+                (tap)="passwordSecure = !passwordSecure"></label>
+        </GridLayout>
+        <label *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+            text="Please enter valid password"></label>
+    </StackLayout>
+    <StackLayout class="input-field-1">
+        <label class="label" text="User Type"></label>
+        <DropDown class="input drop" returnKeyType="done" [autocorrect]="false" autocapitalizationType="none"
+            hint="Select Role" #dd backroundColor="red" itemsTextAlignment="center" [items]="roles"
+            [(ngModel)]="selectedIndex" [ngModelOptions]="{standalone: true}" (selectedIndexChanged)="onchange($event)"
+            (opened)="onopen()" (closed)="onclose()" row="0" colSpan="2"></DropDown>
+    </StackLayout>
+    <StackLayout>
+        <Button text="Login" [isEnabled]="loginForm.valid" class="btn mt-30 btnColor -rounded-lg"
+            (tap)="onLogin()"></Button>
+        <Button text="Register" class="btn btnColor -rounded-lg" nsRouterLink="/auth/register"
+            pageTransition="slideLeft"></Button>
+    </StackLayout>
+</FlexboxLayout>
+
+<FlextboxLayout justifyContent="center" alignItems="center" *ngIf="isLoading">
+    <ActivityIndicator *ngIf="isLoading" [busy]="isLoading" color="blue" width="100" height="100"></ActivityIndicator>
+</FlextboxLayout>

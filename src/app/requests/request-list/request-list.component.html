@@ -1,0 +1,21 @@
+<ns-action-bar title="Requests"></ns-action-bar>
+<ListView [items]="requests" class="bgImage6">
+    <ng-template let-request="item">
+        <Card:CardView class="cardStyle"  margin="10" elevation="40" radius="15">
+            <StackLayout [nsRouterLink]="['/requests',request._id]">
+                <label [text]="'Name : '+request.postedName"></label>
+                <label [text]="'Type Of Food : '+request.food_type"></label>
+                <label [text]="'Quantity : ' + request.quantity_required"></label>
+                <label [text]="'Mobile : ' + request.mobile_number"></label>
+                <label [text]="'Date : '+ changeDateFormat(request.food_required_date)"></label>
+                <!-- <label [text]="'Number : '+ changeDateFormat(request.food_required_date)"></label> -->
+                <label [text]="'Location : '+request.food_required_location"></label>
+    
+            </StackLayout>
+        </Card:CardView>
+      
+    </ng-template>
+</ListView>
+<StackLayout *ngIf="!requests.length" horizontalAlignment="center" verticalAlignment="center">
+    <label text="There is no new request!"></label>
+</StackLayout>

@@ -1,0 +1,25 @@
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content bgImage">
+        <StackLayout row="0" class="nt-drawer__header">
+            <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;"></Image>
+            <Label class="nt-drawer__header-brand  mt-30" [text]="user?.name"></Label>
+            <Label class="nt-drawer__header-footnote mt-10" [text]="user?.email"></Label>
+            <Label class="nt-drawer__header-footnote mt-10" [text]="user?.phone"></Label>
+            <Label class="nt-drawer__header-footnote mt-10" [text]="user?.role"></Label>
+        </StackLayout>
+
+        <ScrollView row="1" class="nt-drawer__body">
+            <StackLayout>
+                <GridLayout columns="auto" horizontalAlignment="center" class="nt-drawer__list-item mt-30">
+                    <Button col="0" (tap)="onLogout()" text="Logout" class="btn btnColor -rounded-lg"></Button>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    <GridLayout tkMainContent>
+        <page-router-outlet></page-router-outlet>
+        <GridLayout *ngIf="httpLoaderService.isLoading$ | async" backgroundColor="#33252525" (tap)="true">
+            <ActivityIndicator color="blue" width="100" height="100" busy="true" class="activity-indicator"></ActivityIndicator>
+        </GridLayout>
+    </GridLayout>
+</RadSideDrawer>

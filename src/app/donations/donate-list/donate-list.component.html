@@ -1,0 +1,22 @@
+<ns-action-bar title="View Donations"></ns-action-bar>
+<ListView [items]="donations" class="bgImage4">
+    <ng-template let-donation="item">
+        <Card:CardView class="cardStyle"  margin="10" elevation="40" radius="15">
+
+        <StackLayout  [nsRouterLink]="['/donations/detail', donation?._id]" pageTransition="slideLeft">
+
+            <label [text]="'Name : '+donation.postedName"></label>
+            <label [text]="'Type Of Food : '+donation.food_type"></label>
+            <label [text]="'Quantity : ' + donation.quantity"></label>
+            <label [text]="'Mobile : ' + donation.mobile_number"></label>
+            <label [text]="'Date : '+ changeDateFormat(donation.food_available_date)"></label>
+            <label [text]="'Transport : '+donation.transport_details"></label>
+
+
+        </StackLayout>
+        </Card:CardView>
+    </ng-template>
+</ListView>
+<StackLayout *ngIf="!donations.length" horizontalAlignment="center" verticalAlignment="center">
+    <label text="There is no new donations!"></label>
+</StackLayout>

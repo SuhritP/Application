@@ -1,0 +1,19 @@
+<ns-action-bar title="Request Detail"></ns-action-bar>
+<StackLayout class="page p-20">
+    <Card:CardView class="cardStyle">
+        <StackLayout class="cardContent">
+            <label [text]="'Requested date: ' + changeDateFormat(request?.food_required_date)"></label>
+            <label [src]="'Food type: ' + request?.food_type"></label>
+            <label [text]="'Quantity: ' +  request?.quantity_required"></label>
+            <label [text]="'Location: ' +  request?.food_required_location"></label>
+            <Image *ngIf="request?.food_image != ''" [src]="request?.food_image" width="200" height="200"></Image>
+
+            <Button *ngIf="user.role != 'NGO' && !hideButtons" class="btn mt-30 mt-30 -primary -rounded-lg" text="Accept" (tap)="onAcceptRequest()"></Button>
+            <Button *ngIf="user.role != 'NGO' && !hideButtons" class="btn btnColor -rounded-lg" text="Reject" (tap)="onRejectRequest()"></Button>
+            
+            <label *ngIf="user.role != 'NGO' && rejectedFood" class="rejected" text="Request is Rejected By You"></label>
+            <label *ngIf="acceptedFood" class="accepted" [text]="acceptedText"></label>
+       
+        </StackLayout>
+    </Card:CardView>
+</StackLayout>
